@@ -3,12 +3,24 @@ spring:
         active:
         - dev
 ---
+server:
+  port: 8090
 spring:
-    profiles: dev
-    application:
-      name: microconfig-test-dev
+  profiles: dev
+  application:
+    name: springcloud-base #为此微服务设置一个名字
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-8001.com:8001/eureka/ #客户端进行Eureka注册的配置
 ---
+server:
+  port: 8070
 spring:
-    profiles: default
-    application:
-      name: microconfig-test-default
+  profiles: beta
+  application:
+    name: springcloud-base #为此微服务设置一个名字
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-8001.com:8001/eureka/ #客户端进行Eureka注册的配置
